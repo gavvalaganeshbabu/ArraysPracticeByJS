@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Prime Factorization</title>
+  </head>
+  <body>
+    <h1>Prime Factorization</h1>
+    <label for="number-input">Enter a number:</label>
+    <input type="number" id="number-input">
+    <button id="factorize-button">Factorize</button>
+    <div id="output"></div>
+    <script>
+      function isPrime(number) {
+        if (number < 2) {
+          return false;
+        }
+        for (let i = 2; i <= Math.sqrt(number); i++) {
+          if (number % i === 0) {
+            return false;
+          }
+        }
+        return true;
+      }
+
+      function factorize() {
+        const numberInput = document.getElementById("number-input");
+        const number = Number(numberInput.value);
+        if (isNaN(number)) {
+          alert("Please enter a valid number.");
+          return;
+        }
+        const output = document.getElementById("output");
+        output.textContent = "";
+
+        const primeFactors = [];
+        let factor = 2;
+        let n = number; // declare a new variable to store updated value of number
+        while (factor <= n) {
+          if (n % factor === 0 && isPrime(factor)) {
+            primeFactors.push(factor);
+            n /= factor;
+          } else {
+            factor++;
+          }
+        }
+
+        output.textContent = `Prime factors of ${number}: ${primeFactors.join(", ")}`;
+      }
+
+      const factorizeButton = document.getElementById("factorize-button");
+      factorizeButton.addEventListener("click", factorize);
+    </script>
+  </body>
+</html>
