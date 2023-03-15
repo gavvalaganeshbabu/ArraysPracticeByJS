@@ -7,6 +7,45 @@
     <title>Welcome to Arrays Practice Problem</title>
 </head>
 <body>
-    
+     <h1>Random 3-Digit Numbers</h1>
+    <ul id="number-list"></ul>
+    <script>
+      const numberList = document.getElementById("number-list");
+      const numbers = [];
+      for (let i = 0; i < 10; i++) {
+        const randomNumber = Math.floor(Math.random() * 900) + 100;
+        numbers.push(randomNumber);
+        const listItem = document.createElement("li");
+        listItem.textContent = randomNumber;
+        numberList.appendChild(listItem);
+      }
+      console.log(numbers);
+
+      let smallest = Infinity;
+      let secondSmallest = Infinity;
+      let largest = -Infinity;
+      let secondLargest = -Infinity;
+
+      for (let i = 0; i < numbers.length; i++) {
+        const currentNumber = numbers[i];
+        if (currentNumber < smallest) {
+          secondSmallest = smallest;
+          smallest = currentNumber;
+        } else if (currentNumber < secondSmallest) {
+          secondSmallest = currentNumber;
+        }
+        if (currentNumber > largest) {
+          secondLargest = largest;
+          largest = currentNumber;
+        } else if (currentNumber > secondLargest) {
+          secondLargest = currentNumber;
+        }
+      }
+
+      console.log("Smallest:", smallest);
+      console.log("Second smallest:", secondSmallest);
+      console.log("Largest:", largest);
+      console.log("Second largest:", secondLargest);
+    </script>
 </body>
 </html>
