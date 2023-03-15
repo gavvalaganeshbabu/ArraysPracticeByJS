@@ -46,6 +46,15 @@
       console.log("Second smallest:", secondSmallest);
       console.log("Largest:", largest);
       console.log("Second largest:", secondLargest);
+      console.log("Using Sort() Method :");
+      numbers.sort((a, b) => a - b);
+      console.log(numbers);
+
+      const secondSmallestSort = numbers[1];
+      const secondLargestSort = numbers[numbers.length - 2];
+
+      console.log("Second smallest:", secondSmallestSort);
+      console.log("Second largest:", secondLargestSort);
     </script>
 </body>
 </html>
