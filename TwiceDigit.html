@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Repeated Digits</title>
+  </head>
+  <body>
+    <h1>Repeated Digits</h1>
+    <button onclick="findRepeatedDigits()">Find Repeated Digits</button>
+    <p id="result"></p>
+
+    <script>
+      function findRepeatedDigits() {
+        const repeatedDigits = [];
+
+        for (let i = 0; i <= 100; i++) {
+          const digits = i.toString().split('');
+          if (digits.length === 2 && digits[0] === digits[1]) {
+            repeatedDigits.push(i);
+          }
+        }
+
+        const result = document.getElementById("result");
+        result.textContent = `The repeated digits are: ${repeatedDigits.join(', ')}`;
+      }
+    </script>
+  </body>
+</html>
+
+
+
+
+
+
